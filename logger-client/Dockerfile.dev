@@ -1,0 +1,23 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+
+# Force update the package-lock.json if needed
+RUN npm install --package-lock-only
+
+# Then install all dependencies including dev dependencies
+RUN npm install --no-audit
+
+# Don't copy source code - it will be mounted as a volume
+
+# Expose development port
+EXPOSE 3000
+
+# Set environment variables
+ENV NODE_ENV=development
+ENV PORT=3000
+
+# Command to run in development mode
+CMD ["npm", "run", "dev"]

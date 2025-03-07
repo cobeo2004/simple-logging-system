@@ -4,8 +4,8 @@ import { Logger } from "experimental-logging-client";
 function Card() {
   const [count, setCount] = useState(0);
   const logger = new Logger({
-    apiUrl: "http://localhost:4000/logs",
-    apiKey: "this-is-a-secret-key",
+    apiUrl: import.meta.env.VITE_API_URL,
+    apiKey: import.meta.env.VITE_API_KEY,
     source: "logger-client",
   });
   const handleClick = () => {

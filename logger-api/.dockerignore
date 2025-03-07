@@ -1,0 +1,39 @@
+# Dependency directories
+node_modules/
+
+# Build directories
+dist/
+build/
+coverage/
+
+# Environment variables (will be provided at runtime)
+.env
+.env.*
+
+# Git and version control
+.git/
+.gitignore
+.github/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files
+test/
+*.spec.ts
+*.test.ts
+
+# Documentation
+*.md
+!README.md
+
+# SQLite database
+*.sqlite
+*.sqlite-journal

@@ -1,0 +1,38 @@
+version: "3.8"
+
+# Development configuration override
+# To use this configuration, run:
+# docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
+services:
+  # API service for development
+  api:
+    build:
+      context: ./logger-api
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./logger-api:/app
+      - /app/node_modules
+      - api_data:/app/data
+    environment:
+      NODE_ENV: development
+      PORT: 4000
+    ports:
+      - "4000:4000"
+    command: npm run start:dev
+
+  # Client service for development
+  client:
+    build:
+      context: ./logger-client
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./logger-client:/app
+      - /app/node_modules
+    environment:
+      NODE_ENV: development
+      API_URL: http://api:4000
+    command: npm run dev
+
+volumes:
+  api_data:

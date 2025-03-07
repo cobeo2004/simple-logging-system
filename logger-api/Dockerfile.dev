@@ -1,0 +1,20 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+COPY package*.json ./
+COPY prisma ./prisma/
+
+# Install dependencies including development dependencies
+RUN npm install
+
+# Don't copy source code - it will be mounted as a volume
+
+# Expose development port
+EXPOSE 3000
+
+# Set environment variables
+ENV NODE_ENV=development
+
+# Command to run in development mode
+CMD ["npm", "run", "start:dev"]

@@ -1,0 +1,66 @@
+version: "3.8"
+
+services:
+  # API service
+  api:
+    build:
+      context: ./logger-api
+      dockerfile: Dockerfile
+    container_name: logger-api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      API_KEYS: ${API_KEYS:-this-is-a-secret-key}
+      PORT: 4000
+    ports:
+      - "4000:4000"
+    volumes:
+      - api_data:/app/data
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--quiet",
+          "--tries=1",
+          "--spider",
+          "http://localhost:4000/health",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+
+  # Client service
+  client:
+    build:
+      context: ./logger-client
+      dockerfile: Dockerfile
+    container_name: logger-client
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      API_URL: http://api:4000
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "wget",
+          "--quiet",
+          "--tries=1",
+          "--spider",
+          "http://localhost:3001/",
+        ]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  api_data:
