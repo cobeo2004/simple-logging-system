@@ -1,5 +1,5 @@
 {
-  "name": "@logging-system/simple-logging-client",
+  "name": "simple-logging-client",
   "version": "1.0.0",
   "description": "A simple JavaScript logger client for sending logs to a centralized logging service",
   "main": "dist/index.js",

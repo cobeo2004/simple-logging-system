@@ -5,19 +5,19 @@ A simple JavaScript/TypeScript logger client for sending logs to a centralized l
 ## Installation
 
 ```bash
-npm install @logging-system/simple-logging-client
+npm install simple-logging-client
 ```
 
 Or with yarn:
 
 ```bash
-yarn add @logging-system/simple-logging-client
+yarn add simple-logging-client
 ```
 
 ## Usage
 
 ```typescript
-import LoggerClient from "@logging-system/simple-logging-client";
+import LoggerClient from "simple-logging-client";
 
 // Initialize the logger
 const logger = new LoggerClient({

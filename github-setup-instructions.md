@@ -44,67 +44,7 @@ git push -u origin main
 5. Value: [paste your npm token here]
 6. Click "Add secret"
 
-## 4. Creating GitHub Actions Workflow File
-
-Create a file at `.github/workflows/publish.yml` with the following content:
-
-```yaml
-name: Publish SDK
-
-on:
-  push:
-    tags:
-      - "v*"
-    paths:
-      - "logger-sdk/**"
-  workflow_dispatch:
-    inputs:
-      version:
-        description: "Version to publish (e.g., patch, minor, major, or specific version)"
-        required: true
-        default: "patch"
-
-jobs:
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16.x"
-          registry-url: "https://registry.npmjs.org/"
-
-      - name: Install dependencies
-        run: npm ci
-        working-directory: ./logger-sdk
-
-      - name: Build
-        run: npm run build
-        working-directory: ./logger-sdk
-
-      - name: Publish to npm
-        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
-        run: npm publish
-        working-directory: ./logger-sdk
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Version and Publish (manual trigger)
-        if: github.event_name == 'workflow_dispatch'
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          npm version ${{ github.event.inputs.version }} -m "Bump version to %s [skip ci]"
-          npm publish
-        working-directory: ./logger-sdk
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-```
-
-## 5. Publishing the SDK
+## 4. Publishing the SDK
 
 ### Option 1: Manual Publishing
 
@@ -126,8 +66,8 @@ npm publish
 
 ```bash
 # Create a new version tag
-git tag v1.0.1
-git push origin v1.0.1
+git tag v1.0.0
+git push origin v1.0.0
 ```
 
 This will trigger the GitHub Actions workflow to publish the package.

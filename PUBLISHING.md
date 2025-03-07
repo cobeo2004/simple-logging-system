@@ -1,6 +1,6 @@
 # Publishing Guide
 
-This document provides detailed instructions for publishing the `@logging-system/simple-logging-client` package to npm.
+This document provides detailed instructions for publishing the `simple-logging-client` package to npm.
 
 ## Prerequisites
 
@@ -110,10 +110,10 @@ npm version patch  # or 'minor' or 'major'
 After publishing, verify that your package is available on npm:
 
 ```bash
-npm view @logging-system/simple-logging-client
+npm view simple-logging-client
 ```
 
-You can also check the npm website: https://www.npmjs.com/package/@logging-system/simple-logging-client
+You can also check the npm website: https://www.npmjs.com/package/simple-logging-client
 
 ## Troubleshooting
 
