@@ -1,9 +1,9 @@
 import { useState } from "react";
-import LoggerClient from "experimental-logging-client";
+import { Logger } from "experimental-logging-client";
 
 function Card() {
   const [count, setCount] = useState(0);
-  const logger = new LoggerClient({
+  const logger = new Logger({
     apiUrl: "http://localhost:4000/logs",
     apiKey: "this-is-a-secret-key",
     source: "logger-client",
