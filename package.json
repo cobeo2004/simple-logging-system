@@ -1,0 +1,33 @@
+{
+    "name": "logging-system",
+    "version": "1.0.0",
+    "description": "Complete logging system with client, API, and SDK components",
+    "private": true,
+    "workspaces": [
+        "logger-api",
+        "logger-client",
+        "logger-sdk"
+    ],
+    "scripts": {
+        "build": "npm run build --workspaces --if-present",
+        "test": "npm run test --workspaces --if-present",
+        "clean": "npm run clean --workspaces --if-present",
+        "start:api": "npm run start --workspace=logger-api",
+        "start:client": "npm run start --workspace=logger-client",
+        "build:sdk": "npm run build --workspace=logger-sdk",
+        "publish:sdk": "npm run publish --workspace=logger-sdk"
+    },
+    "keywords": [
+        "logging",
+        "monorepo",
+        "api",
+        "client",
+        "sdk"
+    ],
+    "author": "",
+    "license": "MIT",
+    "engines": {
+        "node": ">=16.0.0",
+        "npm": ">=7.0.0"
+    }
+}

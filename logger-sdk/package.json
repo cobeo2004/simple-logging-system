@@ -1,0 +1,38 @@
+{
+  "name": "simple-logging-client",
+  "version": "1.0.0",
+  "description": "A simple JavaScript logger client for sending logs to a centralized logging service",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "logger",
+    "logging",
+    "client",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/logging-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/logging-system/issues"
+  },
+  "homepage": "https://github.com/yourusername/logging-system#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}
