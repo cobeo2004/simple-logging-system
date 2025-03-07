@@ -15,10 +15,10 @@
     "axios": "^1.8.1",
     "compression": "^1.8.0",
     "date-fns": "^4.1.0",
+    "experimental-logging-client": "^1.0.0",
     "express": "^5.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "simple-logging-client": "^1.0.0",
     "sirv": "^3.0.1",
     "tailwindcss": "^4.0.11"
   },

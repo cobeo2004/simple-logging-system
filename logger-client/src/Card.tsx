@@ -1,5 +1,5 @@
 import { useState } from "react";
-import LoggerClient from "simple-logging-client";
+import LoggerClient from "experimental-logging-client";
 
 function Card() {
   const [count, setCount] = useState(0);
