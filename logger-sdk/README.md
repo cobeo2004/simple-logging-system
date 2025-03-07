@@ -1,23 +1,23 @@
-# Simple Logging Client
+# Experimental Logging Client
 
 A simple JavaScript/TypeScript logger client for sending logs to a centralized logging service.
 
 ## Installation
 
 ```bash
-npm install simple-logging-client
+npm install experimental-logging-client
 ```
 
 Or with yarn:
 
 ```bash
-yarn add simple-logging-client
+yarn add experimental-logging-client
 ```
 
 ## Usage
 
 ```typescript
-import LoggerClient from "simple-logging-client";
+import LoggerClient from "experimental-logging-client";
 
 // Initialize the logger
 const logger = new LoggerClient({

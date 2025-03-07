@@ -1,6 +1,6 @@
-// Example usage of the simple-logging-client library in TypeScript
+// Example usage of the experimental-logging-client library in TypeScript
 
-import LoggerClient, { LogConfig, LogEntry } from "simple-logging-client";
+import LoggerClient, { LogConfig, LogEntry } from "experimental-logging-client";
 
 // Define configuration with TypeScript types
 const config: LogConfig = {

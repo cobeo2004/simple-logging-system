@@ -1,6 +1,6 @@
-// Example usage of the simple-logging-client library
+// Example usage of the experimental-logging-client library
 
-const { LoggerClient } = require("simple-logging-client");
+const { LoggerClient } = require("experimental-logging-client");
 
 // Initialize the logger
 const logger = new LoggerClient({
